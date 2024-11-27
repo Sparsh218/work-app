@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="col-xs-12">
+        <h2>success-alert works!</h2>
+            Enter Username <input type="text" class="form-control" [(ngModel)] ="username">
+        <p [ngClass]="{online:username!==''}" *ngIf="username!==''; else username_else" [ngStyle]="{backgroundColor: getColor()}">Current Username value is : {{username}}</p>
+        <ng-template #username_else>
+            <p [ngClass]="{online:username===''}" [ngStyle]="{backgroundColor: getColor()}">Username is not set</p>
+        </ng-template>
+        <button [disabled]="username===''" (click) = "resetUsername()">Reset Username</button>
+    </div>
+</div>
